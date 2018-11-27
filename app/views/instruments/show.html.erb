@@ -1,2 +1,14 @@
 <h1>Instruments#show</h1>
-<p>Find me in app/views/instruments/show.html.erb</p>
+
+
+<h1><%= @instrument.name.capitalize %></h1>
+
+        <p> <%= price_currency(@instrument.price, unit: "$", separator: ",", delimiter: ".", format: "%n %u") %></p>
+        <p><%= @instrument.category.capitalize %></p>
+        <p><%= @instrument.description %></p>
+        <% if current_user == @instrument.user %>
+          <%= link_to instruments_edit_path(@instrument) %>
+        <% else %>
+        <%= link_to "Book this instrument",instruments_new_booking_path(@instrument) %>
+        <% end %>
+

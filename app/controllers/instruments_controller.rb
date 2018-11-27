@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = policy_scope(Instrment).order(created_at: :desc)
+    @instruments = policy_scope(Instrument).order(created_at: :desc)
     authorize @instruments
   end
 
@@ -17,7 +17,7 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = Instrument.new(instrument_params)
     @instrument.user = current_user
-    authorize @toy
+    authorize @instrument
     if @instrument.save
       redirect_to @instrument
     else
