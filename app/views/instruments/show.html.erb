@@ -3,12 +3,14 @@
 
 <h1><%= @instrument.name.capitalize %></h1>
 
-        <p> <%= price_currency(@instrument.price, unit: "$", separator: ",", delimiter: ".", format: "%n %u") %></p>
+        <p> <%= @instrument.price %> $/day </p>
         <p><%= @instrument.category.capitalize %></p>
         <p><%= @instrument.description %></p>
-        <% if current_user == @instrument.user %>
-          <%= link_to instruments_edit_path(@instrument) %>
-        <% else %>
-        <%= link_to "Book this instrument",instruments_new_booking_path(@instrument) %>
+        <% if policy(@instrument).edit? %>
+          <%= link_to "Edit", edit_instrument_path(@instrument) %>
+        <% end %>
+        <% if policy(@instrument).new? %>
+          <% @booking = Booking.new %>
+          <%= link_to "Book this instrument", new_instrument_booking_path(@instrument, @booking) %>
         <% end %>
 

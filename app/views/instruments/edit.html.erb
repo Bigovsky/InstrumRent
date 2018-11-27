@@ -3,5 +3,7 @@
 
 <%= render 'form', instrument: @instrument %>
 
-<%= link_to instruments_path(@instrument) %>
+<% if policy(@instrument).show? %>
+  <%= link_to "Back", instrument_path(@instrument) %>
+<% end %>
 

@@ -5,16 +5,20 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(booking_params)
+    authorize @booking
   end
 
   def new
+    @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new(booking_params)
     @booking.instrument = @instrument
+    authorize @booking
     if @booking.save
       redirect_to instrument_path(@instrument)
     else

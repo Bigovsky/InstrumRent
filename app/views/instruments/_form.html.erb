@@ -1,27 +1,15 @@
-
-  <%= form_for :instrument do |f| %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :description %>
-      <%= f.text_area :description, rows: 5%>
-
-      <%= f.label :price %>
-      <%= f.text_field :price, class: "form-control", id: "price-field", placeholder: "0,00€", value: price_currency(instrument.price, unit: "$", separator: ",", delimiter: ".", format: "%n %u") unless :price.nil? %>
-
-
-      <%= f.label :location %>
-      <%= f.text_field :location%>
-
-
-
-      <%= f.label :category %>
-      <%= f.select :category, ['String', 'Brass', 'Percussion', 'Guitar', 'other'] %>
-
-
-      <%= f.label :photo %>
-      <%= f.file_field :photo, accept: 'image/jpeg,image/gif,image/png' %>
-      <%= f.submit id: "instrument-form-btn",  %>
-  <% end %>
-
+<%= form_for(@instrument) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :category %>
+  <%= f.select :category, ['String', 'Brass', 'Percussion', 'Guitar', 'other'] %>
+  <%= f.label :picture %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  <%= f.submit %>
+<% end %>
