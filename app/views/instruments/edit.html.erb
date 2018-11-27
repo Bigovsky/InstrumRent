@@ -1,2 +1,7 @@
 <h1>Instruments#edit</h1>
-<p>Find me in app/views/instruments/edit.html.erb</p>
+<h1> <%= @instrument.name.capitalize %></h1>
+
+<%= render 'form', instrument: @instrument %>
+
+<%= link_to instruments_path(@instrument) %>
+
