@@ -1,0 +1,7 @@
+<h1>Instruments#edit</h1>
+<h1> <%= @instrument.name.capitalize %></h1>
+
+<%= render 'form', instrument: @instrument %>
+
+<%= link_to instruments_path(@instrument) %>
+
