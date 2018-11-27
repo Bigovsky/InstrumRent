@@ -1,15 +1,15 @@
 class BookingsController < ApplicationController
-  # def index
-  #   @bookings = Booking.all
-  # end
+  def index
+    @bookings = Booking.all
+  end
 
-  # def show
-  #   @booking = Booking.find(booking_params)
-  # end
+  def show
+    @booking = Booking.find(booking_params)
+  end
 
-  # def new
-  #   @booking = Booking.new
-  # end
+  def new
+    @booking = Booking.new
+  end
 
   def create
     @instrument = Instrument.find(params[:instrument_id])
@@ -23,6 +23,8 @@ class BookingsController < ApplicationController
   end
 
   # def edit
+  #   @booking = Booking.find(booking_params)
+  #   @booking.edit(booking_params)
   # end
 
   # def update
@@ -30,8 +32,10 @@ class BookingsController < ApplicationController
   #   @booking.update(booking_params)
   # end
 
-  # def destroy
-  # end
+  def destroy
+    @booking = Booking.find(booking_params)
+    @booking.delete_at(booking_params)
+  end
 
   private
 
