@@ -1,0 +1,6 @@
+<% @bookings.each do |booking| %>
+<h2><%= booking.instrument %></h2>
+<p><%= booking.user %></p>
+<p><%= booking.start_date %></p>
+<p><%= booking.end_date %></p>
+<% end %>
