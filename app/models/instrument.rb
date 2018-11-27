@@ -1,6 +1,6 @@
 class Instrument < ApplicationRecord
-
-  has_many :bookings, dependent: :delete_all
+  has_many :bookings, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true
   validates :description, presence: true

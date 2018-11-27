@@ -1,9 +1,11 @@
 <h1>Instruments#index</h1>
 <div class="row">
       <% @instruments.each do |ins| %>
-      <%= ins.name.upcase %>
-      <%= price_currency(ins.price, unit: "$", separator: ",", delimiter: ".", format: "%n %u") %>/day
-      <%= ins.category.capitalize %>
-      <%= link_to '', instruments_path(instrument) %>
+        <%= ins.name.upcase %>
+        <%= ins.price %> $/day
+        <%= ins.category.capitalize %>
+        <% if policy(ins).show? %>
+          <%= link_to 'show', instrument_path(ins) %>
         <% end %>
+      <% end %>
 </div>
