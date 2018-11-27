@@ -7,7 +7,7 @@
       t.float :price
       t.string :category
       t.string :picture
-      t.user :references
+      t.references :user
 
       t.timestamps
     end
