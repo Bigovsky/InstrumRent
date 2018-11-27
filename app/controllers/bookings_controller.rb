@@ -1,34 +1,41 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
+  # def index
+  #   @bookings = Booking.all
+  # end
 
-  def show
-    @booking = Booking.find(params[STRONG_PARAMS])
-  end
+  # def show
+  #   @booking = Booking.find(booking_params)
+  # end
 
-  def new
-  end
+  # def new
+  #   @booking = Booking.new
+  # end
 
   def create
-    @booking = Booking.new(params[CONFIRM])
-    @booking.save
+    @instrument = Instrument.find(params[:instrument_id])
+    @booking = Booking.new(booking_params)
+    @booking.instrument = @instrument
+    if @booking.save
+      redirect_to instrument_path(@instrument)
+    else
+      render "instruments/show"
+    end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    @booking = Booking.find(params[STRONG_PARAMS])
-    @booking.update(params[CONFIRM])
-  end
+  # def update
+  #   @booking = Booking.find(booking_params)
+  #   @booking.update(booking_params)
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
-  def STRONG_PARAMS
-  end
+  private
 
-  def CONFIRM
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
