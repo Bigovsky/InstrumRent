@@ -3,7 +3,8 @@
 
 <h1><%= @instrument.name.capitalize %></h1>
 
-        <p> <%= @instrument.price %> $/day </p>
+        <p><%= @instrument.price %> $/day </p>
+        <p><%= @instrument.location.capitalize %></p>
         <p><%= @instrument.category.capitalize %></p>
         <p><%= @instrument.description %></p>
         <% if policy(@instrument).edit? %>
@@ -13,4 +14,6 @@
           <% @booking = Booking.new %>
           <%= link_to "Book this instrument", new_instrument_booking_path(@instrument, @booking) %>
         <% end %>
+        <%= link_to "Back", instruments_path %>
+
 
