@@ -1,0 +1,38 @@
+.form-inputs {
+  width: 300px;
+  margin-bottom: 15px;
+}
+.various-forms{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+.button-form {
+  border: 2px white;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+  padding: 5px 10px;
+  height: 45px;
+}
+.button-form:hover {
+  color: darker_blue;
+  background-color: rgba(255,255,255, 0)
+}
+.form-control {
+  border-radius: 10px;
+  border: 1px solid $blue;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.avatar {
+height: 30px;
+width: 30px;
+border-radius: 50%;
+}
