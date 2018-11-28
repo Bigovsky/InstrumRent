@@ -1,13 +1,46 @@
-<% @bookings.each do |booking| %>
-<h2><%= booking.instrument_id %></h2>x
+
+<div class="tab">
+  <button class="bookings-btn not-active">Bookings</button>
+  </div>
+  <div id="diff-bookings">
+  <div id="bookings" style= " display: block;">
+
+    <% @bookings.each do |booking| %>
+
+<div class="each-instrument">
+        <div class="instrument-name">
+          <p class= "name"> <p><%= booking.instrument.name %></p><
  <%= link_to (cl_image_tag booking.instrument.picture, height: 70, crop: :fill),instrument_path(booking.instrument) %>
-<p><%= booking.instrument.user.username %></p>
-<p><%= booking.user.username %></p>
+ <p><%= booking.instrument.user.username %></p>
+   </div>
+        <div class="instrument-price">
 <p><%= " #{booking.start_date.strftime('%e/%b')}  - #{booking.end_date.strftime('%e/%b')}" %></p>
  <% price = (booking.end_date - booking.start_date + 1).to_i * booking.instrument.price.to_i %>
  <p><% total_price = booking.instrument.price %></p>
   <p><%="Total amount: #{total_price}"%></p>
+  </div>
+  <div class="text-center">
+          <div>
+            <%=  link_to booking_path(booking), method: :delete,
+            data: { confirm: "Are your sure you want to delete the booking for #{booking.instrument.name}"} do %>
+            <p><i class= "far fa-trash-alt"></i> Cancel Booking</p>
+          <% end %>
+          </div>
 <% end %>
-
-
+</div>
+<div class="row" id="myinstruments" style=" display: none;">
+    <% @myinst.each do |ins| %>
+      <div class="col-xs-6 col-md-4">
+        <div class="card each-myinst" style= "background-image: url(<%= cl_image_path ins.picture, height: 200, crop: :fill %>)">
+          <p class= "card-category"><%=ins.category.capitalize %></p>
+          <div class="card-price"><%= ins.price %>$/day</div>
+          <div class="card-title"><%= ins.name.upcase %></div>
+          <%= link_to '', instrument_path(ins), class:'card-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
 
