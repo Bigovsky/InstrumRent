@@ -1,8 +1,5 @@
-<h1>Instruments#show</h1>
-
-
 <h1><%= @instrument.name.capitalize %></h1>
-
+        <%= cl_image_tag(@instrument.picture, width: 400, height: 300, crop: :fill)%>
         <p><%= @instrument.price %> $/day </p>
         <p><%= @instrument.location.capitalize %></p>
         <p><%= @instrument.category.capitalize %></p>
