@@ -1,0 +1,34 @@
+<div class="navbar-wagon">
+
+
+  <a href="/" class="navbar-wagon-brand">
+    <%= image_tag "logo.jpg", width: 50 , height: 100, crop: :fill %>
+
+
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <% if user_signed_in? %>
+      <a href="/instruments" class="navbar-wagon-item navbar-wagon-link">instruments</a>
+      <a href="/bookings" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
+
+        <!-- Profile picture with dropdown list -->
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", 'data-toggle': "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path , method: :delete  %></li>
+            </ul>
+          </div>
+        </div>
+    <!-- If user is not logged in, possible actions are: Index Instrument, New User -->
+      <% else %>
+      <!--   <a href="/instruments" class="navbar-wagon-item navbar-wagon-link">Instruments</a> -->
+        <a href="/users/sign_up" class="navbar-wagon-item navbar-wagon-link">Create an account</a>
+        <a href="/users/sign_in" class="navbar-wagon-item navbar-wagon-link">Log in</a>
+
+      <% end %>
+  </div>
+</div>

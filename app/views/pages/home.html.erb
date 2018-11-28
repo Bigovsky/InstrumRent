@@ -1,5 +1,82 @@
+
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%= link_to 'See all instruments', instruments_path %>
+
+
+
+<%#= cl_image_tag current_user.picture, height: 300, width: 400, crop: :fill %>
+<form class="form-style-9">
+<ul>
+<li>
+    <input type="text" name="field1" class="field-style field-full align-none" placeholder="Instrument" />
+</li>
+<li>
+    <input type="text" name="field2" class="field-style field-full align-none" placeholder="Location" />
+</li>
+<li>
+<input type="text" name="field3" class="field-style field-full align-none" placeholder="Rent date" />
+</li>
+<li>
+<input type="submit" value="Search" />
+</li>
+</ul>
+</form>
+
+<ul class="cb-slideshow" class="image-size">
+  <li>
+    <span>
+      <%= image_tag("1", :class => "front-page-image") %>
+
+  </span>
+    <!-- <img src="../images/1.jpg" alt="pic a"> -->
+
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <!-- <li>
+    <span><img src=".../images/2.jpg" alt="pic b"></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <li>
+    <span><img src=".../images/3.jpg" alt="pic c"></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li> -->
+  <li>
+    <span> <%= image_tag("4", :class => "front-page-image") %></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <li>
+    <span> <%= image_tag("5", :class => "front-page-image") %></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <li>
+    <span> <%= image_tag("6", :class => "front-page-image") %></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <li>
+    <span> <%= image_tag("7", :class => "front-page-image") %></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+  <li>
+    <span> <%= image_tag("8", :class => "front-page-image") %></span>
+    <div>
+      <h3>InstrumRent</h3>
+    </div>
+  </li>
+</ul>
 
