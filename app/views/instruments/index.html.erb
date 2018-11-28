@@ -8,4 +8,7 @@
           <%= link_to 'show', instrument_path(ins) %>
         <% end %>
       <% end %>
+      <% if policy(Instrument).create? %>
+        <%= link_to 'Post an instrument', new_instrument_path %>
+      <% end %>
 </div>

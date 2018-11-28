@@ -5,10 +5,6 @@ class InstrumentPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-  end
-
   def create?
     true
   end
@@ -18,7 +14,6 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
-
 end
