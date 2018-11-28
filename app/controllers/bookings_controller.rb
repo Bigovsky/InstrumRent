@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new(booking_params)
     @booking.instrument = @instrument
+    @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to instrument_path(@instrument)

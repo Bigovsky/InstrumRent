@@ -1,4 +1,4 @@
-class InstrumentsController < ApplicationController
+  class InstrumentsController < ApplicationController
   def index
     @instruments = policy_scope(Instrument).order(created_at: :desc)
   end
