@@ -1,12 +1,3 @@
-
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to 'See all instruments', instruments_path %>
-
-
-
-<%#= cl_image_tag current_user.picture, height: 300, width: 400, crop: :fill %>
 <form class="form-style-9">
 <ul>
 <li>
@@ -19,6 +10,7 @@
 <input type="text" name="field3" class="field-style field-full align-none" placeholder="Rent date" />
 </li>
 <li>
+<%= link_to '.', instruments_path %>
 <input type="submit" value="Search" />
 </li>
 </ul>
