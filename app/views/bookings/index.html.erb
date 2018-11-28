@@ -1,14 +1,12 @@
 <% @bookings.each do |booking| %>
-<h2><%= booking.instrument %></h2>
+<h2><%= booking.instrument_id %></h2>x
  <%= link_to (cl_image_tag booking.instrument.picture, height: 70, crop: :fill),instrument_path(booking.instrument) %>
 <p><%= booking.instrument.user %></p>
 <p><%= booking.user %></p>
 <p><%= " #{booking.start_date.strftime('%e/%b')}  - #{booking.end_date.strftime('%e/%b')}" %></p>
- <% price = (booking.end_date - booking.start_date + 1).to_i * booking.toy.price.to_i %>
+ <% price = (booking.end_date - booking.start_date + 1).to_i * booking.instrument.price.to_i %>
  <p><% total_price = booking.price %></p>
   <p><%="Total amount: #{total_price}"%></p>
-
-
 <% end %>
 
 

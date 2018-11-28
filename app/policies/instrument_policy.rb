@@ -14,7 +14,6 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
-
 end
