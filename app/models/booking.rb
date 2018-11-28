@@ -1,6 +1,8 @@
-class Booking < ApplicationRecord
+ class Booking < ApplicationRecord
   belongs_to :instrument
   belongs_to :user
+
+
   validates :instrument, presence: true
   validates :user, presence: true
   validates :start_date, presence: true

@@ -1,7 +1,6 @@
   class InstrumentsController < ApplicationController
   def index
     @instruments = policy_scope(Instrument).order(created_at: :desc)
-    authorize @instruments
   end
 
   def show
@@ -19,7 +18,7 @@
     @instrument.user = current_user
     authorize @instrument
     if @instrument.save
-      redirect_to @instrument
+      redirect_to instrument_path(@instrument)
     else
       render 'new'
     end
@@ -35,7 +34,7 @@
     @instrument.update(instrument_params)
     authorize @instrument
     if @instrument.save
-      redirect_to @instrument
+      redirect_to instrument_path(@instrument)
     else
       render 'edit'
     end
@@ -51,7 +50,7 @@
             :location,
             :price,
             :category,
-            :photo
+            :picture
           )
   end
 end
