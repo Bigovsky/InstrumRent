@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.8'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
@@ -15,6 +15,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "geocoder"
+gem 'bookable', '~> 0.0.52'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
