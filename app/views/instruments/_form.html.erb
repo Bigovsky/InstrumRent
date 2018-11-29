@@ -1,15 +1,23 @@
+<div class="various-forms">
 <%= form_for(@instrument) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <div class="form-inputs">
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, class: "form-control" %>
+  <div class="form-inputs">
   <%= f.label :price %>
-  <%= f.text_field :price %>
+  <%= f.text_field :price, class: "form-control" %>
+  <div class="form-inputs">
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, class: "form-control" %>
+  <div class="form-inputs">
   <%= f.label :category %>
-  <%= f.select :category, ['String', 'Brass', 'Percussion', 'Guitar', 'other'] %>
+  <%= f.select :category, ['String', 'Brass', 'Percussion', 'Guitar', 'other'], class: "form-control" %>
+  <div class="form-inputs align-center">
+
   <%= f.label :picture %>
-  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  <%= f.submit %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "button-form"%>
+  <%= hidden_field_tag :status, "available" %>
+  <%= f.submit id: "inst-form-btn", class: "button-form"%>
 <% end %>
