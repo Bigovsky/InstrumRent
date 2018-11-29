@@ -11,6 +11,9 @@ class InstrumentsController < ApplicationController
     @booking.instrument = @instrument
     @booking.user = current_user
     authorize @booking
+    @reviews = policy_scope(Review)
+    authorize @instrument
+
   end
 
   def new

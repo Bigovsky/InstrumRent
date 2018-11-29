@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
+    @bookings = policy_scope(Booking).order(created_at: :desc)
     @myinst = policy_scope(Instrument).select { |ins| ins.user == current_user }
   end
 
   def show
     @booking = Booking.find(params[:id])
+    @reviews = policy_scope(Review)
     authorize @booking
   end
 
@@ -28,16 +29,6 @@ class BookingsController < ApplicationController
 end
 end
 
-
-  # def edit
-  #   @booking = Booking.find(booking_params)
-  #   @booking.edit(booking_params)
-  # end
-
-  # def update
-  #   @booking = Booking.find(booking_params)
-  #   @booking.update(booking_params)
-  # end
 
   def destroy
     @booking = Booking.find(params[:id])
