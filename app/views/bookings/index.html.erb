@@ -25,6 +25,9 @@
             data: { confirm: "Are your sure you want to delete the booking for #{booking.instrument.name}"} do %>
             <p><i class= "far fa-trash-alt"></i> Cancel Booking</p>
           <% end %>
+          <% if policy(booking).create_review? %>
+            <%= link_to "Review this Booking", new_booking_review_path(booking) %>
+          <% end %>
           </div>
 <% end %>
 </div>

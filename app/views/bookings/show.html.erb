@@ -2,4 +2,10 @@
 <p><%= @booking.instrument.name %></p>
 <p><%= @booking.start_date %></p>
 <p><%= @booking.end_date %></p>
-
+<h2>Reviews for this booking</h2>
+<% @reviews.each do |review| %>
+  <ul>
+    <li><%= review.content %></li>
+    <li><%= review.rating %></li>
+  </ul>
+<% end %>
