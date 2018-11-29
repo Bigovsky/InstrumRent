@@ -4,6 +4,14 @@
         <p><%= @instrument.location.capitalize %></p>
         <p><%= @instrument.category.capitalize %></p>
         <p><%= @instrument.description %></p>
+        <h2>Reviews for this instrument</h2>
+        <% @reviews.each do |review| %>
+          <ul>
+            <li><strong>Review by </strong><%= review.booking.user.username %></li>
+            <li><%= review.content %></li>
+            <li><%= review.rating %></li>
+          </ul>
+        <% end %>
         <% if policy(@instrument).edit? %>
           <%= link_to "Edit", edit_instrument_path(@instrument) %>
         <% end %>

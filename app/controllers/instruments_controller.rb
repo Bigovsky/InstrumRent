@@ -7,6 +7,7 @@ class InstrumentsController < ApplicationController
 
   def show
     @instrument = Instrument.find(params[:id])
+    @reviews = policy_scope(Review)
     authorize @instrument
   end
 
