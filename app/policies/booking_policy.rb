@@ -6,7 +6,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.instrument.user != user
   end
 
   def show?

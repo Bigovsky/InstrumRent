@@ -4,6 +4,8 @@
         <p><%= @instrument.location.capitalize %></p>
         <p><%= @instrument.category.capitalize %></p>
         <p><%= @instrument.description %></p>
+
+        <li> <p> Posted by: </p> <p><%=@instrument.user.username %></p> </li>
         <h2>Reviews for this instrument</h2>
         <% @reviews.each do |review| %>
           <ul>
@@ -12,16 +14,15 @@
             <li><%= review.rating %></li>
           </ul>
         <% end %>
+
         <% if policy(@instrument).edit? %>
           <%= link_to "Edit", edit_instrument_path(@instrument) %>
-        <% end %>
-        <% if policy(@instrument).new? %>
-          <% @booking = Booking.new %>
-          <%= link_to "Book this instrument", new_instrument_booking_path(@instrument, @booking) %>
         <% end %>
         <% if policy(Booking).index? %>
           <%= link_to "Bookings of this instrument", bookings_path %>
         <% end %>
         <%= link_to "Back", instruments_path %>
 
-
+<% if policy(@booking).create? %>
+<%= render 'form_booking', instrument: @instrument, booking: @booking %>
+<% end %>
