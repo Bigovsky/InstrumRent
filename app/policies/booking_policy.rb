@@ -22,6 +22,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create_review?
-    record.user == user
+    temp = true
+    record.reviews.each do |review|
+      temp = false if review.booking.user == user
+    end
+    record.user == user && temp
   end
 end
