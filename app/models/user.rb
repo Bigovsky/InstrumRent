@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
-  has_many :instruments, as: :owner, dependent: :destroy
-  has_many :bookings, as: :renter, dependent: :destroy
+  has_many :instruments, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true

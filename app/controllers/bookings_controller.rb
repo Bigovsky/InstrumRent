@@ -9,13 +9,6 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def new
-    @instrument = Instrument.find(params[:instrument_id])
-    @booking = Booking.new
-    @booking.instrument = @instrument
-    @booking.user = current_user
-    authorize @booking
-  end
 
   def create
     @instrument = Instrument.find(params[:instrument_id])
@@ -23,12 +16,18 @@ class BookingsController < ApplicationController
     @booking.instrument = @instrument
     @booking.user = current_user
     authorize @booking
-    if @booking.save
-      redirect_to instrument_path(@instrument)
+
+
+      if @booking.save
+      redirect_to bookings_path
+    else if @booking.bookings_must_not_overlap
+      render "new"
     else
-      render "show"
-    end
+      render "../views/instruments/_form_booking"
   end
+end
+end
+
 
   # def edit
   #   @booking = Booking.find(booking_params)
@@ -49,6 +48,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:instrument_id, :user_id, :start_date, :end_date)
   end
 end
