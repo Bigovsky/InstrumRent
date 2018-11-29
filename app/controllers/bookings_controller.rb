@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @reviews = Review.where(booking_id: params[:id])
     authorize @booking
   end
 
