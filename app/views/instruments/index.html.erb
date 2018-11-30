@@ -1,6 +1,6 @@
 
 
-<h3 class="text-center h1-index">Rent an Instrument.. Feel music</h3>
+<h3 class="text-center h1-index">Rent an Instrument.. Feel the music</h3>
 <br>
 <div class="container-fluid">
   <div class="inst-index-wrapper">
@@ -8,7 +8,7 @@
       <div class="row">
         <% @instruments.each do |ins| %>
         <div class="col-xs-6 col-md-4">
-          <div class="card" style= "background-image: url(<%= cl_image_path ins.picture, height: 200, crop: :fill %>)">
+          <div class="card" style= "background-image: url(<%= cl_image_path ins.picture, crop: :fill %>)">
             <div class="card-category"><%= ins.category.capitalize %></div>
             <div class="card-price"><%= ins.price %> $/day </div>
             <div class="card-title"><%= ins.name.upcase %></div>
