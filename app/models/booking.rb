@@ -1,7 +1,7 @@
  class Booking < ApplicationRecord
   belongs_to :instrument
   belongs_to :user
-  has_many :reviews, dependent: :delete_all
+  has_many :reviews
 
 
   validate :bookings_must_not_overlap
