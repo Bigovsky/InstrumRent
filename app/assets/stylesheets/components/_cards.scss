@@ -6,8 +6,8 @@
   position: relative;
   color: background;
   border-radius: 10px;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border: 2px solid black;
   text-shadow: 0 1px 3px rgb(0,0,0);
   font-size: 18px;
@@ -107,4 +107,14 @@
 p {
   color: white;
   text-shadow: 2px 2px #3e6cc1;
+}
+.main-container {
+ margin-bottom: 20px;
+ margin-top: 20px;
+}
+
+li {
+  color: white;
+  list-style: none;
+  text-shadow: 1px 1px black;
 }
