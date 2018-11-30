@@ -1,13 +1,13 @@
 
 <div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+  <div class="booking-wrapper" style="width: 400px;">
     <%= simple_form_for([@instrument, @booking]) do |f| %>
-  <%= f.input :start_date, as: :string,
-  required: false, input_html: { class: "datepicker", id:"range_start"}%>
-  <%= f.input :end_date , as: :string, required: false, input_html: {class: "datepicker", id:"range_end"} %>
-  <%= f.submit class: "button-form"%>
-<% end %>
-<% if policy(@booking).show? %>
-  <%= link_to 'Back', instrument_path(@instrument) %>
-<% end %>
+    <%= f.input :start_date, as: :string,
+    required: false, input_html: { class: "datepicker", id:"range_start"}%>
+    <%= f.input :end_date , as: :string, required: false, input_html: {class: "datepicker", id:"range_end"} %>
+    <%= f.submit class: "button-form"%>
+    <% end %>
+  </div>
+</div>
+
 
