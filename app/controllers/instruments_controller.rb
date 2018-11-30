@@ -5,19 +5,15 @@ class InstrumentsController < ApplicationController
     @instruments = policy_scope(Instrument).order(created_at: :desc)
   end
 
-  def dashboard
-    @instruments = Instrument.all.where(user: current_user)
-    authorize @instruments
-  end
-
   def show
     @instrument = Instrument.find(params[:id])
     @booking = Booking.new
     @booking.instrument = @instrument
     @booking.user = current_user
     authorize @booking
-    @reviews = Review.joins(:booking).where("bookings.instrument_id = ?", @instrument.id)
+    @reviews = policy_scope(Review)
     authorize @instrument
+
   end
 
   def new
