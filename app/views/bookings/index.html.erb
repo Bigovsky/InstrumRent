@@ -15,8 +15,8 @@
         <%= booking.instrument.name %> </div>
         <div class="card-description">
         <p><%= " #{booking.start_date.strftime('%e/%b')}  - #{booking.end_date.strftime('%e/%b')}" %></p>
-        <p><% price = ((booking.end_date - booking.start_date) * booking.instrument.price.to_i) %></p>
-        <p><%="Total amount: #{price}"%></p>
+        <p><% booking.price = ((booking.end_date - booking.start_date) * booking.instrument.price) %></p>
+        <p><%="Total amount: #{booking.price}"%></p>
         <%=  link_to booking_path(booking), method: :delete, data: { confirm: "Are your sure you want to delete the booking for #{booking.instrument.name}"} do %>
         <p><i class= "far fa-trash-alt"></i> Cancel Booking</p>
         <% end %>
