@@ -7,6 +7,7 @@
   validate :bookings_must_not_overlap
   validates :instrument, presence: true
   validates :user, presence: true
+  validates :price, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :start_date_change_to_be_saved

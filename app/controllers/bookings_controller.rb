@@ -24,7 +24,8 @@ class BookingsController < ApplicationController
     else if @booking.bookings_must_not_overlap
       render "new"
     else
-      render "../views/instruments/_form_booking"
+      render "error"
+
   end
 end
 end
@@ -39,6 +40,6 @@ end
   private
 
   def booking_params
-    params.require(:booking).permit(:instrument_id, :user_id, :start_date, :end_date)
+    params.require(:booking).permit(:instrument_id, :user_id, :start_date, :end_date, :price)
   end
 end
