@@ -1,8 +1,12 @@
 class InstrumentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-     scope.all
+      scope.where.not(user: user)
     end
+  end
+
+  def dashboard?
+    true
   end
 
   def create?

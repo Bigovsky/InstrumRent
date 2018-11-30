@@ -1,0 +1,32 @@
+
+
+<h3 class="text-center h1-index">My instruments</h3>
+<br>
+<div class="container-fluid">
+  <div class="inst-index-wrapper">
+    <div class="cards-container">
+      <div class="row">
+        <% @instruments.each do |ins| %>
+        <div class="col-xs-6 col-md-4">
+          <div class="card" style= "background-image: url(<%= cl_image_path ins.picture, height: 200, crop: :fill %>)">
+            <div class="card-category"><%= ins.category.capitalize %></div>
+            <div class="card-price"><%= ins.price %> $/day </div>
+            <div class="card-title"><%= ins.name.upcase %></div>
+            <% if policy(ins).show? %>
+          <%= link_to 'show', instrument_path(ins), class:'card-link'%>
+        <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="button-container">
+  <% if user_signed_in? %>
+   <% if policy(Instrument).create? %>
+        <%= link_to 'Post an instrument', new_instrument_path,class:'button-form' %>
+  <% end %>
+  <% end %>
+</div>
