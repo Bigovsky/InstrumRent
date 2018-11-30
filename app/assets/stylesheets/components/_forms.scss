@@ -11,13 +11,13 @@
 .button-form {
   border: 2px white;
   border-radius: 10px;
-  background-color: grey;
-  color: white;
+  color: black;
   padding: 5px 10px;
   height: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .button-form:hover {
-  color: darker_blue;
   background-color: rgba(255,255,255, 0)
 }
 .form-control {
@@ -35,4 +35,8 @@
 height: 30px;
 width: 30px;
 border-radius: 50%;
+}
+#instrument_category {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
