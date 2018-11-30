@@ -9,9 +9,9 @@
         <h2>Reviews for this instrument</h2>
         <% @reviews.each do |review| %>
           <ul>
-              <li><strong>Review by </strong><%= review.booking.user.username %></li>
-              <li><%= review.content %></li>
-              <li><%= review.rating %></li>
+            <li><strong>Review by </strong><%= review.booking.user.username %></li>
+            <li><%= review.content %></li>
+            <li><%= review.rating %></li>
           </ul>
         <% end %>
 
